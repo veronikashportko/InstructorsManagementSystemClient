@@ -108,5 +108,9 @@ h3 {
 
 .content-scroll {
     overflow-y: auto;
-    height: 444px;
+    height: 452px;
+}
+
+.content-scroll::-webkit-scrollbar {
+    width:0px;
 }
