@@ -1,0 +1,40 @@
+<div class="main-container">
+  <div>
+    <h3>Add/Edit Instructor</h3>
+  </div>
+  <div class="main-table">
+    <div class = "table-header">
+        <div class="row">First Name</div>
+        <div class="row">Last Name</div>
+        <div class="row row-delete">Delete</div>
+    </div>
+    <div class="content-scroll">
+      <div class = "table-content" *ngFor="let instructor of instructorsList; let i = index; let odd = odd; let even = even" (click)="insertDataInForm(i)" [class.odd]="odd" >
+        <div class="row">{{instructor.firstName}}</div>
+        <div class="row">{{instructor.lastName}}</div>
+        <div class="row column-delete">
+          <button class="button-delete" (click)="deleteInstructor(instructor)">Delete</button>
+        </div>
+      </div>  
+  </div>  
+  </div>
+  <div class="edit-form">
+    <div class="details">Instructor Details</div>
+    <form [formGroup] = "instructorForm">
+      <div class="edit-inputs">
+        <div class="edit-input">
+          <span class="input-label">First Name</span>
+          <input  placeholder="First name of Instructor" formControlName="firstName">
+        </div>      
+        <div class="edit-input">
+          <span class="input-label">Last Name</span>
+          <input placeholder="Last name of Instructor" formControlName="lastName">
+        </div>
+      </div>
+    </form>
+    <div>
+      <button class="button-save" (click)="addOrEditInstructor()">Add/Save</button>
+    </div>
+
+  </div>
+</div>
